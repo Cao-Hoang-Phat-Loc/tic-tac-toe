@@ -36,24 +36,23 @@ function Game() {
     return null;
   };
 
-  
   //Declaring a Winner
   useEffect(() => {
-     const currentWinner = calculateWinner(history[stepNumber]);
-    if(currentWinner){
-      setWinner(currentWinner)
-    }else {
+    const currentWinner = calculateWinner(history[stepNumber]);
+    if (currentWinner) {
+      setWinner(currentWinner);
+    } else {
       setWinner(null);
     }
-  }, [history,stepNumber]);
+  }, [history, stepNumber]);
 
   //Handle player
   const handleClick = (i) => {
-    const historyPoint =history.slice(0,stepNumber +1);
-    const squares= [...historyPoint[stepNumber]];
-    if(calculateWinner(squares)|| squares[i]) return;
-    squares[i]= xIsNext ? "X" :"O";
-    setHistory([...historyPoint,squares]);
+    const historyPoint = history.slice(0, stepNumber + 1);
+    const squares = [...historyPoint[stepNumber]];
+    if (calculateWinner(squares) || squares[i]) return;
+    squares[i] = xIsNext ? "X" : "O";
+    setHistory([...historyPoint, squares]);
     setStepNumber(historyPoint.length);
     setXIsNext(!xIsNext);
   };
@@ -75,7 +74,7 @@ function Game() {
       <h2 className="result">Winner is: {winner ? winner : "N/A"}</h2>
       <div className="game">
         <span className="player">Next player is: {xIsNext ? "X" : "O"}</span>
-        <div className="aaa"> 
+        <div className="aaa">
           <Board squares={history[stepNumber]} handleClick={handleClick} />
           <History history={history} jumpTo={jumpTo} />
         </div>

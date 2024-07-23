@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-function History({history,jumpTo}) {
+function History({ history, jumpTo }) {
   return (
     <div className="history">
       <h4>History</h4>
@@ -15,7 +15,7 @@ function History({history,jumpTo}) {
         })}
       </ul>
     </div>
-  )
+  );
 }
 
-export default History
+export default History;
